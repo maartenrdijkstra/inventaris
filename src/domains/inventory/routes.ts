@@ -1,4 +1,4 @@
-import VoorbeeldFile from "./pages/VoorbeeldFile.vue";
+import InventoryList from "./pages/InventoryList.vue";
 import Home from "./pages/Home.vue";
 
 export const routes = [
@@ -7,7 +7,7 @@ export const routes = [
     component: Home,
   },
   {
-    path: "/vb",
-    component: VoorbeeldFile,
+    path: "/list",
+    component: InventoryList,
   },
 ];

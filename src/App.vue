@@ -1,7 +1,7 @@
 <template>
   <nav>
     <RouterView />
-    <RouterLink class="addPadding" to="/vb">Go to Examples</RouterLink>
+    <RouterLink to="/list">Go to Inventory List</RouterLink>
   </nav>
 </template>
 
