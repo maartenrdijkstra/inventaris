@@ -1,7 +1,7 @@
 <template>
   <nav>
     <RouterView />
-    <RouterLink to="/list">Go to Inventory List</RouterLink>
+    <RouterLink to="/table">Go to Inventory Table</RouterLink>
   </nav>
 </template>
 

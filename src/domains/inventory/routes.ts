@@ -1,4 +1,4 @@
-import InventoryList from "./pages/InventoryList.vue";
+import InventoryTable from "./pages/InventoryTable.vue";
 import Home from "./pages/Home.vue";
 
 export const routes = [
@@ -7,7 +7,7 @@ export const routes = [
     component: Home,
   },
   {
-    path: "/list",
-    component: InventoryList,
+    path: "/table",
+    component: InventoryTable,
   },
 ];
