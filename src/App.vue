@@ -1,8 +1,9 @@
 <template>
   <nav>
-    <RouterView />
     <RouterLink to="/table">Go to Inventory Table</RouterLink>
+    <RouterLink to="/add">Add Product</RouterLink>
   </nav>
+  <RouterView />
 </template>
 
 <script setup>

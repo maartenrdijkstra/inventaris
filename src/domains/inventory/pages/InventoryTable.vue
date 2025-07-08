@@ -18,7 +18,7 @@
 </template>
 
 <script setup>
-import { getProducts } from "../InventoryStore";
+import { getAllProducts } from "../inventoryStore";
 
-const products = getProducts.value;
+const products = getAllProducts;
 </script>

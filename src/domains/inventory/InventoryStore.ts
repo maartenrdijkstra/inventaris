@@ -1,4 +1,4 @@
-import { ref } from "vue";
+import { computed, ref } from "vue";
 
 const products = ref([
   {
@@ -46,4 +46,15 @@ const products = ref([
 ]);
 
 // Getter
-export const getProducts = products;
+export const getAllProducts = computed(() => products.value);
+
+// Actions
+export const addProduct = (product: {
+  id: number;
+  name: string;
+  actualAmount: number;
+  minimumAmount: number;
+}) => {
+  console.log(product);
+  products.value.push(product);
+};
