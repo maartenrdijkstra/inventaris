@@ -22,3 +22,9 @@ import { getAllProducts } from "../inventoryStore";
 
 const products = getAllProducts;
 </script>
+
+<style>
+table {
+  margin: 0 auto;
+}
+</style>
