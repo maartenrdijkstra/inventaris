@@ -13,10 +13,6 @@ import { RouterLink, RouterView } from "vue-router";
 </script>
 
 <style scoped>
-template {
-  text-align: center;
-}
-
 .somePadding {
   padding: 2rem;
 }

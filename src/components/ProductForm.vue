@@ -63,14 +63,14 @@ const router = useRouter();
 
 const productToSave = { ...props.product };
 
-function saveProduct() {
+const saveProduct = () => {
   emit("save", productToSave);
   router.push("/table");
-}
+};
 
-function cancel() {
+const cancel = () => {
   router.push("/table");
-}
+};
 </script>
 
 <style scoped>
