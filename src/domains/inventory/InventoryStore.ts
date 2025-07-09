@@ -1,5 +1,12 @@
 import { computed, ref } from "vue";
 
+export interface Product {
+  id: number;
+  name: string;
+  actualAmount: number;
+  minimumAmount: number;
+}
+
 const products = ref([
   {
     id: 1,
@@ -47,18 +54,22 @@ const products = ref([
 
 // Getter
 export const getAllProducts = computed(() => products.value);
+export const getProductById = (id: number) =>
+  computed(() => products.value.find((product: Product) => product.id === id));
 
 // Actions
-export const addProduct = (product: {
-  id: number;
-  name: string;
-  actualAmount: number;
-  minimumAmount: number;
-}) => {
+export const addProduct = (product: Product) => {
   if (product.id === undefined) {
-    const products = getAllProducts.value;
-    product.id = Math.max(...(products.map((p) => p.id) + 1));
+    const products: Product[] = getAllProducts.value;
+    product.id = Math.max(...products.map((p) => p.id)) + 1;
   }
   console.log(product);
   products.value.push(product);
+};
+export const updateProduct = (updated: Product) => {
+  const index = products.value.findIndex((p: Product) => p.id === updated.id);
+  if (index !== -1) {
+    products.value[index] = updated;
+  }
+  console.log(products.value[index]);
 };

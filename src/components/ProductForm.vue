@@ -7,7 +7,7 @@
             <label for="name">Naam</label>
           </td>
           <td>
-            <input id="name" v-model="name" required />
+            <input id="name" v-model="productToSave.name" required />
           </td>
         </tr>
         <tr>
@@ -15,7 +15,12 @@
             <label for="actual">Voorraad</label>
           </td>
           <td>
-            <input id="actual" type="number" v-model="actualAmount" required />
+            <input
+              id="actual"
+              type="number"
+              v-model="productToSave.actualAmount"
+              required
+            />
           </td>
         </tr>
         <tr>
@@ -26,7 +31,7 @@
             <input
               id="minimum"
               type="number"
-              v-model="minimumAmount"
+              v-model="productToSave.minimumAmount"
               required
             />
           </td>
@@ -56,21 +61,10 @@ const props = defineProps({
 
 const router = useRouter();
 
-const name = ref(props.product.name);
-const actualAmount = ref(props.product.actualAmount);
-const minimumAmount = ref(props.product.name);
+const productToSave = { ...props.product };
 
 function saveProduct() {
-  const newProduct = { ...props.product };
-  if (newProduct.id === undefined) {
-    const products = getAllProducts.value;
-    const maxId = Math.max(...products.map((p) => p.id));
-    newProduct.id = maxId + 1;
-  }
-  newProduct.name = name.value;
-  newProduct.actualAmount = actualAmount.value;
-  newProduct.minimumAmount = minimumAmount.value;
-  emit("save", newProduct);
+  emit("save", productToSave);
   router.push("/table");
 }
 
