@@ -24,13 +24,13 @@ const products = ref([
     id: 3,
     name: "bananen",
     actualAmount: 12,
-    minimumAmount: 7,
+    minimumAmount: 70,
   },
   {
     id: 4,
     name: "perziken",
     actualAmount: 8,
-    minimumAmount: 8,
+    minimumAmount: 9,
   },
   {
     id: 5,
@@ -72,4 +72,10 @@ export const updateProduct = (updated: Product) => {
     products.value[index] = updated;
   }
   console.log(products.value[index]);
+};
+
+export const getToOrder = () => {
+  return products.value.filter(
+    (product: Product) => product.actualAmount < product.minimumAmount
+  );
 };

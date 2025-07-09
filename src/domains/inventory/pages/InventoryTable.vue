@@ -18,13 +18,23 @@
       </tr>
     </tbody>
   </table>
+  <div class="add-margin-top">
+    <button @click="goToOrderPage">Ga naar bestellingen</button>
+  </div>
 </template>
 
 <script setup>
 import { RouterLink } from "vue-router";
 import { getAllProducts } from "../InventoryStore";
+import { useRouter } from "vue-router";
 
 const products = getAllProducts;
+
+const router = useRouter();
+
+const goToOrderPage = () => {
+  router.push("/order");
+};
 </script>
 
 <style>
@@ -35,5 +45,9 @@ table {
 .inventory-table td {
   padding: 0 3rem;
   text-align: left;
+}
+
+.add-margin-top {
+  margin-top: 2rem;
 }
 </style>
