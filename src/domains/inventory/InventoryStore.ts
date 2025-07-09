@@ -7,7 +7,7 @@ export interface Product {
   minimumAmount: number;
 }
 
-const products = ref([
+const products = ref<Product[]>([
   {
     id: 1,
     name: "pruimen",
@@ -66,6 +66,7 @@ export const addProduct = (product: Product) => {
   console.log(product);
   products.value.push(product);
 };
+
 export const updateProduct = (updated: Product) => {
   const index = products.value.findIndex((p: Product) => p.id === updated.id);
   if (index !== -1) {

@@ -49,22 +49,21 @@
   </form>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from "vue";
 import { useRouter } from "vue-router";
-import { getAllProducts } from "../domains/inventory/InventoryStore";
+import type { Product } from "../domains/inventory/InventoryStore";
 
 const emit = defineEmits(["save"]);
-const props = defineProps({
-  product: Object,
-});
+
+const { product } = defineProps<{ product: Product }>();
 
 const router = useRouter();
 
-const productToSave = { ...props.product };
+const productToSave = ref({ ...product });
 
 const saveProduct = () => {
-  emit("save", productToSave);
+  emit("save", productToSave.value);
   router.push("/table");
 };
 

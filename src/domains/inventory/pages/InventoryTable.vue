@@ -23,7 +23,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { RouterLink } from "vue-router";
 import { getAllProducts } from "../InventoryStore";
 import { useRouter } from "vue-router";
