@@ -8,7 +8,7 @@ import { addProduct } from "../InventoryStore";
 
 const product = { name: "", actualAmount: 0, minimumAmount: 0 };
 
-function addProductItem(newProduct) {
+const addProductItem = (newProduct) => {
   addProduct(newProduct);
-}
+};
 </script>

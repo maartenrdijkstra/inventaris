@@ -55,6 +55,10 @@ export const addProduct = (product: {
   actualAmount: number;
   minimumAmount: number;
 }) => {
+  if (product.id === undefined) {
+    const products = getAllProducts.value;
+    product.id = Math.max(...(products.map((p) => p.id) + 1));
+  }
   console.log(product);
   products.value.push(product);
 };
